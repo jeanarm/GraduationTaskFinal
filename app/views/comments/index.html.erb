@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comments</h1>
+
+
+ 
+    <% @comments.each do |comment| %>
+        <p>Comment body:<%= comment.title %></p>
+        <% if image_tag comment.image.url %>
+        <p>Comment picture:<%= image_tag comment.image.url, class:"image" %></p>
+        <% end %>
+        <p>Commented by:<%= comment.user.email %></p>
+        <p>Commented question:<%= comment.question.title %></p>
+        <%= link_to 'Back', questions_path %>
+        <% if user_signed_in? %>
+        <%if current_user.id==comment.user_id %>
+        <%= link_to 'Edit', [comment.question, comment], method: :edit%>
+         <%= link_to 'Delete', [comment.question, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <% end %>
+        <hr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'add Comment', new_question_comment_path %>

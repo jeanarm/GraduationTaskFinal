@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>OnlineSmartSchool</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+  
+  <body class="appbody">
+  <% if user_signed_in? %>
+  <nav class="navbar navbar-expand fixed-top " style="background-color:#1B447A">
+  <ul class="navbar-nav" style="color:white">
+    <li class="nav-item active">
+      <a class="nav-link left" href="#">OSSP</a>
+    </li>
+   
+    <li class="nav-item" >
+    <a class="nav-link left" <%= link_to 'Home', questions_path%></a>
+    </li>
+    </ul>
+    <ul class="navbar-nav ml-auto left" style="color:white">
+    <li class="nav-item " >
+    <i class="fas fa-envelope"><% Message.where(read: "false" ).count %></i>
+    </li>
+    </ul>
+    <ul class="navbar-nav ml-auto left" style="color:white">
+    <li class="nav-item " >
+     <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete', class:"left" %>
+    </li>
+  </ul>
+</nav>
+  <div class="row">
+    <div class="col-md-3 side-nav ">
+      <%= render '/layouts/dashboard' %> 
+    </div>
+    <div class="col-md-9 content ">
+<% end %>
+
+      <%= yield %>
+     
+    </div> 
+   
+    
+  </div>
+ 
+  </body>
+</html>

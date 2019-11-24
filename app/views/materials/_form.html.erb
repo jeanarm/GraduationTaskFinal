@@ -1,0 +1,43 @@
+
+<div class="card otherscard" style="background-color: #1B447A">
+<div class="card-body">
+<h1 style= "color: white">New Material</h1>
+<%= form_for([@course, @course.materials.build])  do |form| %>
+  <% if material.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(material.errors.count, "error") %> prohibited this material from being saved:</h2>
+
+      <ul>
+      <% material.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.file_field :content, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    
+    <%= form.hidden_field :course_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit%>
+  </div>
+<% end %>
+
+
+
+</div>
+</div>
+
+

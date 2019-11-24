@@ -1,0 +1,48 @@
+
+<div class="card comment" style="background-color: #1B447A">
+<div class="card-body">
+<h1 style="color:white">New Comment</h1>
+<%= form_for([@question, @question.comments.build]) do |form| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class:"form-control", placeholder:"Enter title" %>
+  </div>
+
+  <div class="field">
+  <h6 style="color:white">Attach screenshoot <h6>
+    <%= form.file_field :image, class:"form-control" %>
+  </div>
+
+  <div class="field">
+  <%  if user_signed_in? %>
+    <%= form.hidden_field :user_id, value: current_user.id%>
+    <%end%>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field:question_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Add Comment' %>
+  </div>
+<% end %>
+
+
+
+</div>
+</div>
+
+

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Marks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Course</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @marks.each do |mark| %>
+      <tr>
+        <td><%= mark.title %></td>
+        <td><%= mark.course.name %></td>
+        <td><%= link_to 'Download', mark.content_url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mark',  new_course_mark_path%>

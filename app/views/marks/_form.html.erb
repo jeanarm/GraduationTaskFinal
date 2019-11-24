@@ -1,0 +1,36 @@
+<div class="card otherscard" style="background-color: #1B447A">
+<div class="card-body">
+<h1 style= "color: white">New Mark</h1>
+<%= form_for([@course, @course.marks.build]) do |form| %>
+  <% if mark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mark.errors.count, "error") %> prohibited this mark from being saved:</h2>
+
+      <ul>
+      <% mark.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :title, placeholder:"Enter title" %>
+  </div>
+
+  <div class="field">
+    <h6 style="color:white"> Upload marks </h6>
+    <%= form.file_field :content %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :course_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Upload" %>
+  </div>
+  <button style="color:white"><%= link_to 'Back', course_marks_path%></button>
+<% end %>
+</div>
+</div>

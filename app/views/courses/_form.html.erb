@@ -1,0 +1,48 @@
+
+
+<div class="card otherscard" style="background-color: #1B447A">
+<div class="card-body">
+
+<h1 style= "color: white">New Course</h1>
+
+<%= form_with(model: course, local: true) do |form| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+    <%= form.text_field :code, class:"form-control", placeholder:"Enter course code"%>
+  </div>
+
+  <div class="field">
+
+    <%= form.text_field :name, class:"form-control", placeholder:"Enter course name" %>
+  </div>
+
+  <div class="field">
+ 
+    <%= form.number_field :credit, class:"form-control", placeholder:"Enter course credit" %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+
+</div>
+</div>
