@@ -46,7 +46,7 @@ h2{
      .round {
         border-radius: 50%;
         padding: 5px;
-            width: 100px;
+            width: 50px;
       }
       .question{
         text-align: center;
@@ -74,7 +74,17 @@ h2{
       }
       .background{
         background: #1B447A !important;
-      }      
+      }  
+      .carousel-item {
+        height: 100vh;
+        min-height: 350px;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+      
       .appbody{
          
          background: url('adventist.jpg') no-repeat center center fixed;
