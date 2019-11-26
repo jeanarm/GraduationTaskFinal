@@ -36,7 +36,11 @@
 
 <% if check==1 %>
 <span style="color:white"><hr></span>
- <p style="color:white"><%= image_tag links, class:"round" unless links.blank? %></p>
+ <p style="color:white"><%= image_tag links, class:"round" unless links.blank? %> 
+ <% if user_signed_in?%>
+ <%= current_user.name %>
+ <% end %>
+ </p>
   <%= link_to 'change ', edit_profile_path(id) %>
  <%= link_to 'remove ', id, method: :delete, data: { confirm: 'Are you sure?' } %>
  
