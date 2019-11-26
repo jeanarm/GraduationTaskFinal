@@ -10,12 +10,13 @@ end
 
 scenario "Course Creation" do
    @course=Course.create!(code:"INSY416", name:"Network Admin", credit:3, user_id:@user.id)
-assert @course
+   @mark=Mark.create!(title:"Admin mark", content:"First notes", course_id:@course.id)
+   assert @mark
 end
-
-  it "Validation does not pass if the name is empty" do
-    course=Course.create!(code:"INSY416", name:"Linux", credit:3, user_id:@user.id)
-    expect(course).to be_valid
+  it "Validation does not pass if the content is empty" do
+    @course=Course.create!(code:"INSY416", name:"Network Admin", credit:3, user_id:@user.id)
+    mark=Mark.create!(title:"Admin mark", content:" can pass", course_id:@course.id )
+    expect(mark).to be_valid
   end
   
   end

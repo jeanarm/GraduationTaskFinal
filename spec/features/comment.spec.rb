@@ -16,7 +16,7 @@ end
 
   it "Validation does not pass if the title is empty" do
     comment = Comment.new(title: '')
-    expect( comment).not_to be_valid
+    expect(comment).not_to be_valid
   end
 
 
