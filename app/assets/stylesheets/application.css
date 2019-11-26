@@ -115,6 +115,16 @@ h2{
 .card{
      background-color: #1B447A
 }
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#1B447A;
+    color: white;
+    text-align: center;
+ }
+
 .otherscard{
     text-align: center;
     margin-right: 300px;
