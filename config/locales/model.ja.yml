@@ -1,0 +1,58 @@
+#  ja:
+#    activerecord:
+#     models:
+#       user:
+
+#         name: 名前
+#         email: メールアドレス
+#         current_password: 現在のパスワード
+#         password: パスワード
+#         password_confirmation: 確認用パスワード
+#         Remember me: ログインを記憶
+#         Forgot your password?: 
+# question:
+#      title: タイトル
+#      content: コンテンツ
+#      image: イメージ
+#    Course:
+#      code: コード
+#      credit: クレジット
+
+     
+       
+    ja:
+  activerecord:
+    models:
+      question: 発表
+      user: ユーザー
+      comment: コメント
+      material:
+         mark:
+         course:
+
+    attributes:
+    comment:
+        title: タイトル
+        image: イメージ
+    question:
+      title: タイトル
+      content: コンテンツ
+      image: イメージ
+    course:
+     code: コード
+    credit: クレジット
+    Create Question: 質問の作成
+        Log in: ログイン
+        Sign up: サインアップ
+        Questions: 質問
+        Users: ユーザー
+        Courses: コース
+        All questions: すべての質問
+        Ask question: 質問する
+        Available courses: 利用可能なコース
+        Register course: コースの登録
+        About: に関しては
+        Contact:  連絡先
+        Sign out: サインアウト
+        New Course: 新しいコース
+        Create Course: コースの作成

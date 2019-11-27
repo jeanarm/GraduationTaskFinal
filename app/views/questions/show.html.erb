@@ -1,24 +1,49 @@
+
+
 <p id="notice"><%= notice %></p>
+<% @question.comments.each do |comment| %>
+  <div class="card" style="margin-top:4rem; width:50%;margin-left:200px;margin-right:200px;">
+  <div class="card-body "style="text-alin:center;">
+<h1>Comments</h1>
+      <% if user_signed_in? %>
+      <% check = 0, links='1', id=nil%>
+      <% Profile.all.each do |profile| %>
+          <% check = 1%>
+          <%links = comment.user.profile.image.url %>
+          <%id =profile%>
+        <% end %>
+     <% if check==1 %>
+     <span style="color:white"><hr></span>
+      <p style="color:white"><%= image_tag links, class:"round" unless links.blank? %> 
+      <% end %>
+      </p>
+      <% else %>
+      <p><i class="fal fa-user"></i></p>
+     <% end %>
+      <%= comment.user.name %></p>
+        <p><%= comment.title %></p>
+        <% if image_tag comment.image.url %>
+        <p><%= image_tag comment.image.url, class:"image" %></p>
+        <% end %>
+        <p>Commented question:<%= comment.question.title %></p>
+        <%= link_to 'Back', questions_path %>
+        <% if user_signed_in? %>
+        <%if current_user.id==comment.user_id %>
+        <%= link_to 'Edit', [comment.question, comment], method: :edit%>
+         <%= link_to 'Delete', [comment.question, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <% end %>
+        <hr>
+ 
 
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @question.content %>
-</p>
+<br>
 
-<p>
-  <strong>Image:</strong>
-  <%=  @question.image.url  %>
-</p>
+</div>
+</div>
+  <% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @question.user.email %>
-</p>
-
+<%if current_user.id==@question.user.id %>
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
+<% end %>

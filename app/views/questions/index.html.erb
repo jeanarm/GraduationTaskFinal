@@ -5,7 +5,23 @@
     
     <div class="card question">
     
-  <div class="card-header"><%= question.user.email %></div>
+  <div class="card-header">
+  <% if user_signed_in? %>
+  <% check = 0, links='1', id=nil%>
+  <% Profile.all.each do |profile| %>
+      <% check = 1%>
+      <%links = question.user.profile.image.url %>
+      <%id =profile%>
+    <% end %>
+ <% if check==1 %>
+ <span style="color:white"><hr></span>
+  <p style="color:white"><%= image_tag links, class:"round" unless links.blank? %> 
+  <% end %>
+  </p>
+  <% else %>
+  <p><i class="fal fa-user"></i></p>
+ <% end %>
+  <%= question.user.email %></div>
   <div class="card-body">
   <p><%= question.title %></p>
  <p> <%= question.content %></p>
