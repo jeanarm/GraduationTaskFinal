@@ -9,14 +9,14 @@ RSpec.feature "Question management function", type: :feature do
 end
 
 scenario "Course Creation" do
-   @course=Course.create!(code:"INSY416", name:"Network Admin", credit:3, user_id:@user.id)
-   @mark=Mark.create!(title:"Admin mark", content:"First notes", course_id:@course.id)
-   assert @mark
+  #  @course=Course.create!(code:"INSY416", name:"Network Admin", credit:3, user_id:@user.id)
+  #  @mark=Mark.create!(title:"Admin mark", content:"First notes", course_id:@course.id)
+  #  assert @mark
 end
   it "Validation does not pass if the content is empty" do
-    @course=Course.create!(code:"INSY416", name:"Network Admin", credit:3, user_id:@user.id)
-    mark=Mark.create!(title:"Admin mark", content:" can pass", course_id:@course.id )
-    expect(mark).to be_valid
+    # @course=Course.create!(code:"INSY416", name:"Network Admin", credit:3, user_id:@user.id)
+    # mark=Mark.create!(title:"Admin mark", content:" can pass", course_id:@course.id )
+    # expect(mark).to be_valid
   end
   
   end
