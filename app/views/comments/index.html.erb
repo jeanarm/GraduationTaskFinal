@@ -26,7 +26,7 @@
      <% end %>
       <%= comment.user.name %></p>
         <p><%= comment.title %></p>
-        <% if image_tag comment.image.url %>
+        <% if comment.image.url %>
         <p><%= image_tag comment.image.url, class:"image" %></p>
         <% end %>
         <p>Commented question:<%= comment.question.title %></p>
